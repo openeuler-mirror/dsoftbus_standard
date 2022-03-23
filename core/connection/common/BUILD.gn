@@ -73,6 +73,9 @@ if (defined(ohos_lite)) {
   import("//build/ohos.gni")
 
   ohos_shared_library("conn_common") {
+    defines = [
+      "_GNU_SOURCE"
+    ]
     include_dirs = [
       "$dsoftbus_root_path/core/common/include",
       "$dsoftbus_root_path/core/connection/common/include",
