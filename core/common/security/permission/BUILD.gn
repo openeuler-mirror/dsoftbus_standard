@@ -88,7 +88,6 @@ if (defined(ohos_lite)) {
       "$dsoftbus_core_path/common/json_utils:json_utils",
       "$dsoftbus_core_path/common/utils:softbus_utils",
       "$dsoftbus_root_path/core/common/log:softbus_log",
-      "//foundation/appexecfwk/standard/kits:appkit_native",
       "//third_party/cJSON:cjson_static",
       "//utils/native/base:utils",
     ]
