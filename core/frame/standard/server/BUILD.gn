@@ -75,3 +75,50 @@ ohos_shared_library("softbus_server") {
   part_name = "dsoftbus_standard"
   subsystem_name = "communication"
 }
+
+ohos_executable("softbus_server_main") {
+  sources = [ "$dsoftbus_root_path/core/frame/small/init/src/softbus_server_main.c" ]
+  include_dirs = [ "$dsoftbus_root_path/core/frame/common/include" ]
+  deps = [
+    "$dsoftbus_root_path/core/frame/standard/server:softbus_server",
+    "$dsoftbus_root_path/adapter:softbus_adapter",
+    "$dsoftbus_root_path/adapter/common/bus_center:dsoftbus_bus_center_monitor",
+    "$dsoftbus_root_path/core/authentication:dsoftbus_auth_server",
+    "$dsoftbus_root_path/core/bus_center/lnn/net_ledger:dsoftbus_bus_center_ledger",
+    "$dsoftbus_root_path/core/bus_center/lnn/lane_hub:dsoftbus_bus_center_hub",
+    "$dsoftbus_root_path/core/bus_center/utils:dsoftbus_bus_center_utils",
+    "$dsoftbus_root_path/core/bus_center:dsoftbus_bus_center_server",
+    "$dsoftbus_root_path/core/common/log:softbus_log",
+    "$dsoftbus_root_path/core/common/message_handler:message_handler",
+    "$dsoftbus_root_path/core/common/softbus_property:softbus_property",
+    "$dsoftbus_root_path/core/common/utils:softbus_utils",
+    "$dsoftbus_root_path/core/common/json_utils:json_utils",
+    "$dsoftbus_root_path/core/common/security/permission:softbus_permission",
+    "$dsoftbus_root_path/core/connection/common:conn_common",
+    "$dsoftbus_root_path/core/connection/manager:conn_manager",
+    "$dsoftbus_root_path/core/connection/ble:ble_connection",
+    "$dsoftbus_root_path/core/connection/br:br_connection",
+    "$dsoftbus_root_path/core/connection/tcp:tcp_connection",
+    "$dsoftbus_root_path/core/discovery:dsoftbus_disc_server",
+    "$dsoftbus_root_path/core/discovery/ble:ble_discovery",
+    "$dsoftbus_root_path/core/discovery/coap:dsoftbus_disc_coap",
+    "$dsoftbus_root_path/core/frame/standard/softbusdata:softbus_server_data",
+    "$dsoftbus_root_path/core/transmission/session:dsoftbus_trans_session",
+    "$dsoftbus_root_path/core/transmission/ipc:dsoftbus_trans_ipc_proxy",
+    "$dsoftbus_root_path/core/transmission/trans_channel/proxy:dsoftbus_trans_proxy_channel",
+    "$dsoftbus_root_path/core/transmission/trans_channel/udp_negotiation:dsoftbus_trans_udp_channel",
+    "$dsoftbus_root_path/core/transmission/trans_channel/tcp_direct:dsoftbus_trans_direct_channel",
+    "$dsoftbus_root_path/core/transmission/pending_packet:softbus_trans_pending",
+    "$dsoftbus_root_path/core/transmission/common:dsoftbus_trans_common",
+    "$dsoftbus_root_path/components/nstackx/nstackx_ctrl:nstackx_ctrl",
+    "$dsoftbus_root_path/components/nstackx/nstackx_util:nstackx_util.open",
+    "//third_party/libcoap:libcoap",
+  ]
+  external_deps = [
+    "hiviewdfx_hilog_native:libhilog",
+    "ipc:ipc_core",
+    "deviceauth_standard:deviceauth_sdk",
+  ]
+  part_name = "dsoftbus_standard"
+  subsystem_name = "communication"
+}
