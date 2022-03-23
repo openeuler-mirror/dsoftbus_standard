@@ -18,16 +18,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "bundle_mgr_interface.h"
-#include "ipc_skeleton.h"
-#include "permission/permission.h"
-#include "permission/permission_kit.h"
-#include "permission_entry.h"
 #include "softbus_adapter_mem.h"
 #include "softbus_errcode.h"
 #include "softbus_log.h"
-#include "sys_mgr_client.h"
-#include "system_ability_definition.h"
 
 int32_t TransPermissionInit()
 {
