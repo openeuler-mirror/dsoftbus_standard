@@ -40,4 +40,5 @@ if (defined(ohos_lite)) {
 } else {
   import("//build/ohos.gni")
   import("$softbus_adapter_config/feature_config/standard/config.gni")
+  libsec_deps_path = "//third_party/bounds_checking_function:libsec_shared"
 }

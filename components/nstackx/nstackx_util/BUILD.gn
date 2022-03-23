@@ -147,7 +147,7 @@ if (defined(ohos_lite)) {
 
     deps = [
       "//third_party/mbedtls",
-      "//utils/native/base:utilsecurec_shared",
+      "$libsec_deps_path",
     ]
     public_configs = [ ":nstackx_util_header" ]
     part_name = "dsoftbus_standard"
