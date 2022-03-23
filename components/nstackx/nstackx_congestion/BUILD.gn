@@ -93,7 +93,7 @@ if (defined(ohos_lite)) {
 
     deps = [
       "$NSTACKX_ROOT/nstackx_util:nstackx_util.open",
-      "//utils/native/base:utilsecurec_shared",
+      "$libsec_deps_path",
     ]
     part_name = "dsoftbus_standard"
     subsystem_name = "communication"

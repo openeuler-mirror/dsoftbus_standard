@@ -103,7 +103,7 @@ if (defined(ohos_lite)) {
     public_deps = [
       "$dsoftbus_root_path/components/mbedtls:mbedtls_shared",
       "//base/startup/syspara_lite/interfaces/innerkits/native/syspara:syspara",
-      "//third_party/bounds_checking_function:libsec_static",
+      "$libsec_deps_path",
       "//utils/native/base:utils",
     ]
     public_configs = [ ":config_adapter_common" ]

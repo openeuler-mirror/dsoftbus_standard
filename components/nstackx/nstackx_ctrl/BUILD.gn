@@ -83,9 +83,9 @@ if (defined(ohos_lite)) {
     public_configs = [ ":dfinder_interface" ]
     deps = [
       "../nstackx_util:nstackx_util.open",
-      "//third_party/bounds_checking_function:libsec_static",
       "//third_party/cJSON:cjson_static",
       "//third_party/libcoap:libcoap",
+      "$libsec_deps_path",
     ]
     subsystem_name = "communication"
     part_name = "dsoftbus_standard"
