@@ -182,4 +182,27 @@ if (defined(ohos_lite)) {
     part_name = "dsoftbus_standard"
     subsystem_name = "communication"
   }
+
+  ohos_executable("softbus_server_main") {
+    sources = [ "standard/init/src/softbus_server_main.c" ]
+    include_dirs = [ "common/include" ]
+    deps = [
+      ":softbus_server",
+      "$dsoftbus_root_path/components/nstackx/nstackx_ctrl:nstackx_ctrl",
+      "$dsoftbus_root_path/components/nstackx/nstackx_util:nstackx_util.open",
+      "$dsoftbus_root_path/core/common:softbus_utils",
+      "$dsoftbus_root_path/adapter:softbus_adapter",
+      "//third_party/libcoap:libcoap",
+      "$dsoftbus_root_path/components/mbedtls:mbedtls_shared",
+      "//third_party/bounds_checking_function:libsec_shared",
+      "//utils/native/base:utils",
+    ]
+    external_deps = [
+      "deviceauth_standard:deviceauth_sdk",
+      "hiviewdfx_hilog_native:libhilog",
+      "ipc:ipc_core",
+    ]
+    part_name = "dsoftbus_standard"
+    subsystem_name = "communication"
+  }
 }
