@@ -222,13 +222,13 @@ static int32_t PostMessageToFsm(FsmStateMachine *fsm, int32_t what, uint64_t arg
 /* remove message when return 0, else return 1 */
 static int32_t RemoveMessageFunc(const SoftBusMessage *msg, void *para)
 {
-    int32_t msgType;
+    int64_t msgType;
 
     if (msg == NULL || para == NULL) {
         return 1;
     }
-    msgType = (int32_t)para;
-    if (msg->what == FSM_CTRL_MSG_DATA && (int32_t)msg->arg1 == msgType) {
+    msgType = (int64_t)para;
+    if (msg->what == FSM_CTRL_MSG_DATA && msg->arg1 == msgType) {
         SoftBusLog(SOFTBUS_LOG_LNN, SOFTBUS_LOG_INFO, "remove fsm data message: %d", msgType);
         FreeFsmHandleMsgObj((FsmCtrlMsgObj *)msg->obj);
         return 0;
