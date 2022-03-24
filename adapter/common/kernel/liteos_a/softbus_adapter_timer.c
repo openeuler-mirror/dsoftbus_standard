@@ -47,7 +47,7 @@ void *SoftBusCreateTimer(void **timerId, void *timerFunc, unsigned int type)
 
     g_timerType = type;
     if (timer_create(CLOCK_REALTIME, &envent, timerId) != 0) {
-        HILOG_ERROR(SOFTBUS_HILOG_ID, "timer create error, errno code: [%{public}d]", errno);
+        HILOG_ERROR(SOFTBUS_HILOG_ID, "timer create error, errno code: [%d]", errno);
         return NULL;
     }
 
@@ -73,7 +73,7 @@ int SoftBusStartTimer(void *timerId, unsigned int tickets)
     }
 
     if (timer_settime(timerId, 0, &value, NULL) != 0) {
-        HILOG_ERROR(SOFTBUS_HILOG_ID, "timer start error, errno code: [%{public}d]", errno);
+        HILOG_ERROR(SOFTBUS_HILOG_ID, "timer start error, errno code: [%d]", errno);
         return SOFTBUS_ERR;
     }
 
@@ -88,7 +88,7 @@ int SoftBusDeleteTimer(void *timerId)
     }
 
     if (timer_delete(timerId) != 0) {
-        HILOG_ERROR(SOFTBUS_HILOG_ID, "timer delete err, errno code: [%{public}d]", errno);
+        HILOG_ERROR(SOFTBUS_HILOG_ID, "timer delete err, errno code: [%d]", errno);
         return SOFTBUS_ERR;
     }
 

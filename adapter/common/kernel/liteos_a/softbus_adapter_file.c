@@ -52,7 +52,7 @@ int SoftBusReadFile(const char *fileName, char *readBuf, int maxLen)
     }
     ret = read(fd, readBuf, fileLen);
     if (ret < 0) {
-        HILOG_ERROR(SOFTBUS_HILOG_ID, "ReadFile read deviceid fail, ret=%{public}d", ret);
+        HILOG_ERROR(SOFTBUS_HILOG_ID, "ReadFile read deviceid fail, ret=%d", ret);
         close(fd);
         return SOFTBUS_FILE_ERR;
     }
