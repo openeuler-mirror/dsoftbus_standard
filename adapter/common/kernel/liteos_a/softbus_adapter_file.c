@@ -51,7 +51,7 @@ static int32_t SoftBusCreateFile(const char *fileName)
         if (access(dirPath, F_OK) != 0) {
             int32_t ret = mkdir(dirPath, S_IRWXU);
             if (ret != 0) {
-                HILOG_ERROR(SOFTBUS_HILOG_ID, "make dir failed, err code %{public}d", ret);
+                HILOG_ERROR(SOFTBUS_HILOG_ID, "make dir failed, err code %d", ret);
                 return SOFTBUS_ERR;
             }
         }
@@ -59,7 +59,7 @@ static int32_t SoftBusCreateFile(const char *fileName)
     }
     int32_t fd = open(fileName, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
     if (fd < 0) {
-        HILOG_ERROR(SOFTBUS_HILOG_ID, "crate file failed, errno = %{public}d", errno);
+        HILOG_ERROR(SOFTBUS_HILOG_ID, "crate file failed, errno = %d", errno);
         return SOFTBUS_ERR;
     }
     close(fd);
@@ -91,7 +91,7 @@ int32_t SoftBusReadFile(const char *fileName, char *readBuf, uint32_t maxLen)
     }
     ret = read(fd, readBuf, fileLen);
     if (ret < 0) {
-        HILOG_ERROR(SOFTBUS_HILOG_ID, "ReadFile read fail, ret=%{public}d", ret);
+        HILOG_ERROR(SOFTBUS_HILOG_ID, "ReadFile read fail, ret=%d", ret);
         close(fd);
         return SOFTBUS_FILE_ERR;
     }
