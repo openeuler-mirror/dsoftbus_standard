@@ -77,7 +77,7 @@ ohos_shared_library("softbus_server") {
 }
 
 ohos_executable("softbus_server_main") {
-  sources = [ "$dsoftbus_root_path/core/frame/small/init/src/softbus_server_main.c" ]
+  sources = [ "$dsoftbus_root_path/core/frame/standard/server/src/softbus_server_main.c" ]
   include_dirs = [ "$dsoftbus_root_path/core/frame/common/include" ]
   deps = [
     "$dsoftbus_root_path/core/frame/standard/server:softbus_server",
