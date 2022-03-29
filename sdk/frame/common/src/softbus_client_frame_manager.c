@@ -29,6 +29,7 @@
 #include "softbus_feature_config.h"
 #include "softbus_log.h"
 #include "softbus_utils.h"
+#include "softbus_client_stub.h"
 
 static bool g_isInited = false;
 static pthread_mutex_t g_isInitedLock = PTHREAD_MUTEX_INITIALIZER;
@@ -181,6 +182,11 @@ int32_t InitSoftBus(const char *pkgName)
         (void)AddClientPkgName(pkgName, g_isInited);
         pthread_mutex_unlock(&g_isInitedLock);
         return SOFTBUS_OK;
+    }
+
+    if (ClientIpcInit()) {
+        pthread_mutex_unlock(&g_isInitedLock);
+        return SOFTBUS_ERR;
     }
 
     if (AddClientPkgName(pkgName, g_isInited) != SOFTBUS_OK) {

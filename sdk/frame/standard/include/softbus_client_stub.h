@@ -16,6 +16,8 @@
 #ifndef SOFTBUS_CLIENT_STUB_H_
 #define SOFTBUS_CLIENT_STUB_H_
 
+#ifdef _cplusplus
+
 #include <map>
 #include "if_softbus_client.h"
 #include "iremote_object.h"
@@ -75,5 +77,15 @@ private:
     std::map<uint32_t, SoftBusClientStubFunc> memberFuncMap_;
 };
 } // namespace OHOS
+
+extern "C" {
+
+#endif
+
+int ClientIpcInit();
+
+#ifdef _cplusplus
+}
+#endif
 
 #endif // SOFTBUS_CLIENT_STUB_H_

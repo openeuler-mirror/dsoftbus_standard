@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+#include "softbus_server.h"
 #include "softbus_server_frame.h"
 
 #include "auth_interface.h"
@@ -55,6 +56,10 @@ bool GetServerIsInit(void)
 
 void InitSoftBusServer(void)
 {
+    if (ServerStubInit() != SOFTBUS_OK) {
+        return;
+    }
+
     SoftbusConfigInit();
 
     if (ServerStubInit() != SOFTBUS_OK) {

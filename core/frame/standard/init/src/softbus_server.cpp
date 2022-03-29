@@ -14,7 +14,7 @@
  */
 
 #include "softbus_server.h"
-
+#include "ipc_center.h"
 #include "ipc_skeleton.h"
 #include "ipc_types.h"
 #include "lnn_bus_center_ipc.h"
@@ -30,6 +30,8 @@
 #include "system_ability_definition.h"
 #include "trans_channel_manager.h"
 #include "trans_session_service.h"
+
+static OHOS::IpcCenter *g_ipc = nullptr;
 
 namespace OHOS {
 REGISTER_SYSTEM_ABILITY_BY_ID(SoftBusServer, SOFTBUS_SERVER_SA_ID, true);
@@ -257,3 +259,14 @@ void SoftBusServer::OnStart()
 
 void SoftBusServer::OnStop() {}
 } // namespace OHOS
+
+int ServerIpcInit()
+{
+    g_ipc = new OHOS::IpcCenter();
+    if (g_ipc == nullptr) {
+        return -1;
+    }
+
+    return g_ipc->Init(true, static_cast< OHOS::IPCObjectStub * >(new OHOS::SoftBusServer(1, false))) ?
+        0: -1;
+}
