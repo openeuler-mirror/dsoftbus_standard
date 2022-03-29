@@ -45,6 +45,10 @@ bool GetServerIsInit()
 
 void InitSoftBusServer(void)
 {
+    if (ServerStubInit() != SOFTBUS_OK) {
+        return;
+    }
+
     SoftbusConfigInit();
 
     if (ServerStubInit() != SOFTBUS_OK) {
