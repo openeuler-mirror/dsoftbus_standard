@@ -16,7 +16,7 @@
 #ifndef SOFTBUS_CLIENT_STUB_H_
 #define SOFTBUS_CLIENT_STUB_H_
 
-#ifdef _cplusplus
+#ifdef __cplusplus
 
 #include <map>
 #include "if_softbus_client.h"
@@ -73,7 +73,7 @@ extern "C" {
 
 int ClientIpcInit();
 
-#ifdef _cplusplus
+#ifdef __cplusplus
 }
 #endif
 

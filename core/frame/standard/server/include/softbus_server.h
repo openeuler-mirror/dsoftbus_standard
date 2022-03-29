@@ -20,7 +20,7 @@
 #include "softbus_common.h"
 #include "system_ability.h"
 
-#ifdef _cplusplus
+#ifdef __cplusplus
 
 namespace OHOS {
 class SoftBusServer : public SystemAbility, public SoftBusServerStub {
@@ -68,7 +68,7 @@ extern "C" {
 
 int ServerIpcInit();
 
-#ifdef _cplusplus
+#ifdef __cplusplus
 }
 #endif
 
