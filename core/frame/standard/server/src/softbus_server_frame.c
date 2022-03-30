@@ -27,6 +27,7 @@
 #include "softbus_utils.h"
 #include "trans_session_manager.h"
 #include "trans_session_service.h"
+#include "softbus_server.h"
 
 static void ServerModuleDeinit(void)
 {
@@ -41,6 +42,11 @@ static void ServerModuleDeinit(void)
 
 void InitSoftBusServer(void)
 {
+    if (ServerIpcInit()) {
+        SoftBusLog(SOFTBUS_LOG_COMM, SOFTBUS_LOG_ERROR, "softbus ipc init failed.");
+        return;
+    }
+
     SoftbusConfigInit();
 
     if (SoftBusTimerInit() == SOFTBUS_ERR) {
