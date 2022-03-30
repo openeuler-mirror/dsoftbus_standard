@@ -30,7 +30,7 @@ static int OnDevEventReceived(void* priv, unsigned int id, struct HdfSBuf* data)
 {
     if (id == IP_READY) {
         g_eventHandler(LNN_MONITOR_EVENT_IP_ADDR_CHANGED, NULL);
-        HILOG_INFO(SOFTBUS_HILOG_ID, "envent %{public}s: dev event received: %{public}u", (char*)priv, id);
+        HILOG_INFO(SOFTBUS_HILOG_ID, "envent %s: dev event received: %u", (char*)priv, id);
     }
     return HDF_SUCCESS;
 }
@@ -48,7 +48,7 @@ int32_t LnnInitProductMonitorImpl(LnnMonitorEventHandler handler)
     }
     g_serv = HdfIoServiceBind(HISYSLINK_SERVICE_NAME);
     if (g_serv == NULL) {
-        HILOG_WARN(SOFTBUS_HILOG_ID, "fail to get service %{public}s", HISYSLINK_SERVICE_NAME);
+        HILOG_WARN(SOFTBUS_HILOG_ID, "fail to get service %s", HISYSLINK_SERVICE_NAME);
         return SOFTBUS_OK;
     }
 
