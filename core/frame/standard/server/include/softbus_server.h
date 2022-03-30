@@ -16,11 +16,11 @@
 #ifndef SOFTBUS_SERVER_H_
 #define SOFTBUS_SERVER_H_
 
+#ifdef __cplusplus
+
 #include "softbus_server_stub.h"
 #include "softbus_common.h"
 #include "system_ability.h"
-
-#ifdef __cplusplus
 
 namespace OHOS {
 class SoftBusServer : public SystemAbility, public SoftBusServerStub {
