@@ -49,7 +49,7 @@ int32_t SoftBusReadFile(const char *fileName, char *readBuf, uint32_t maxLen)
     }
     ret = UtilsFileRead(fd, readBuf, maxLen);
     if (ret < 0) {
-        HILOG_ERROR(SOFTBUS_HILOG_ID, "Read UtilsFileRead, ret=%{public}d", ret);
+        HILOG_ERROR(SOFTBUS_HILOG_ID, "Read UtilsFileRead, ret=%d", ret);
         UtilsFileClose(fd);
         return SOFTBUS_FILE_ERR;
     }
