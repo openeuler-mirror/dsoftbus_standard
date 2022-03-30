@@ -56,7 +56,8 @@ bool GetServerIsInit(void)
 
 void InitSoftBusServer(void)
 {
-    if (ServerStubInit() != SOFTBUS_OK) {
+    if (ServerIpcInit()) {
+        SoftBusLog(SOFTBUS_LOG_COMM, SOFTBUS_LOG_ERROR, "softbus ipc init failed.");
         return;
     }
 
