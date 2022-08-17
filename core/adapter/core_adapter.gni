@@ -30,7 +30,7 @@ if (defined(ohos_lite)) {
 
   bus_center_core_adapter_deps = []
 } else {
-  bus_center_core_adapter_src = [ "$dsoftbus_root_path/core/adapter/bus_center/src/lnn_settingdata_event_monitor.cpp" ]
+  bus_center_core_adapter_src = [ "$dsoftbus_root_path/core/adapter/bus_center/src/lnn_settingdata_event_monitor_virtual.cpp" ]
 
   bus_center_core_adapter_inc = [
     "$dsoftbus_root_path/adapter/common/bus_center/include",
@@ -43,10 +43,5 @@ if (defined(ohos_lite)) {
   ]
 
   bus_center_core_adapter_deps = [
-    "//foundation/aafwk/standard/frameworks/kits/ability/native:abilitykit_native",
-    "//foundation/aafwk/standard/interfaces/innerkits/dataobs_manager:dataobs_manager",
-    "//foundation/distributeddatamgr/appdatamgr/interfaces/innerkits/native_dataability:native_dataability",
-    "//foundation/distributeddatamgr/appdatamgr/interfaces/innerkits/native_rdb:native_rdb",
-    "//foundation/distributedschedule/dmsfwk/interfaces/innerkits/uri:zuri",
   ]
 }
