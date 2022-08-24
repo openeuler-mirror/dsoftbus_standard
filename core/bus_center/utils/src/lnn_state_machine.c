@@ -227,7 +227,7 @@ static int32_t RemoveMessageFunc(const SoftBusMessage *msg, void *para)
     if (msg == NULL || para == NULL) {
         return 1;
     }
-    msgType = (int32_t)para;
+    msgType = *((int32_t*)para);
     if (msg->what == FSM_CTRL_MSG_DATA && (int32_t)msg->arg1 == msgType) {
         SoftBusLog(SOFTBUS_LOG_LNN, SOFTBUS_LOG_INFO, "remove fsm data message: %d", msgType);
         FreeFsmHandleMsgObj((FsmCtrlMsgObj *)msg->obj);
@@ -326,7 +326,7 @@ int32_t LnnFsmRemoveMessage(FsmStateMachine *fsm, int32_t msgType)
         return SOFTBUS_INVALID_PARAM;
     }
     fsm->looper->RemoveMessageCustom(fsm->looper, &fsm->handler,
-        RemoveMessageFunc, (void *)(uintptr_t)msgType);
+        RemoveMessageFunc, (void *)(&msgType));
     return SOFTBUS_OK;
 }
 
