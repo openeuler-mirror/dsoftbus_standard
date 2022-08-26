@@ -190,11 +190,19 @@ static void *LoopTask(void *arg)
 
 static int StartNewLooperThread(SoftBusLooper *looper)
 {
+#ifdef __GLIBC__
+#ifdef __aarch64__
+#define MAINLOOP_STACK_SIZE 131072  
+#else
+#define MAINLOOP_STACK_SIZE 16384
+#endif // __aarch64__
+#else  // not glibc
 #ifdef ASAN_BUILD
 #define MAINLOOP_STACK_SIZE 10240
 #else
 #define MAINLOOP_STACK_SIZE 8192
 #endif
+#endif // __GLIBC__
     int ret;
     SoftBusThreadAttr threadAttr;
     SoftBusThread tid;

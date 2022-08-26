@@ -24,7 +24,15 @@
 #include "softbus_log.h"
 
 #ifndef MIN_STACK_SIZE
+#ifdef __GLIBC__
+#ifdef __aarch64__
+#define MIN_STACK_SIZE 0x20000
+#else 
+#define MIN_STACK_SIZE 0x4000
+#endif // __aarch64__
+#else  // not glibc
 #define MIN_STACK_SIZE 0x8000
+#endif // __GLIBC__
 #endif
 #define THREAD_POOL_NAME "THREAD_POOL"
 
