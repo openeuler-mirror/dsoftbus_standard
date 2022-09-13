@@ -190,6 +190,7 @@ if (defined(ohos_lite)) {
       "//utils/native/base:utils",
       "//base/security/huks/interfaces/innerkits/huks_standard/main:libhukssdk",
       "//base/security/huks/services/huks_standard/huks_engine/main/core:huks_engine_core_standard",
+      "//depend:syspara",
     ]
     external_deps = [
       "hiviewdfx_hilog_native:libhilog",

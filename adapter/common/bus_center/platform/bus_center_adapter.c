@@ -25,7 +25,7 @@
 #include "softbus_common.h"
 #include "softbus_errcode.h"
 
-#define DEFAULT_DEVICE_NAME "OpenHarmony"
+#define DEFAULT_DEVICE_NAME "openEuler"
 
 int32_t GetCommonDevInfo(const CommonDeviceKey key, char *value, uint32_t len)
 {

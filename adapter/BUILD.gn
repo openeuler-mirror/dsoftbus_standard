@@ -116,7 +116,7 @@ if (defined(ohos_lite)) {
       "//utils/native/base/include",
     ]
     sources = [
-      "$softbus_adapter_common/bus_center/platform/bus_center_adapter_weak.c",
+      "$softbus_adapter_common/bus_center/platform/bus_center_adapter.c",
       "$softbus_adapter_common/kernel/liteos_a/lnn_ip_utils_adapter.c",
       "$softbus_adapter_common/kernel/liteos_a/softbus_adapter_file.c",
       "$softbus_adapter_common/kernel/liteos_a/softbus_adapter_mem.c",
@@ -126,6 +126,9 @@ if (defined(ohos_lite)) {
       "$softbus_adapter_common/log/softbus_adapter_log.c",
       "$softbus_adapter_common/mbedtls/softbus_adapter_crypto.c",
       "$softbus_adapter_config/spec_config/softbus_config_adapter.c",
+    ]
+    deps = [
+      "//depend:syspara",
     ]
     public_deps = [
       "//third_party/mbedtls",
