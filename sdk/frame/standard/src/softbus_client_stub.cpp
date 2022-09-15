@@ -18,7 +18,6 @@
 #include "client_bus_center_manager.h"
 #include "client_disc_manager.h"
 #include "client_trans_channel_callback.h"
-#include "ipc_center.h"
 #include "ipc_skeleton.h"
 #include "ipc_types.h"
 #include "message_parcel.h"
@@ -28,7 +27,6 @@
 #include "softbus_ipc_def.h"
 #include "softbus_log.h"
 
-static OHOS::IpcCenter *g_ipc = nullptr;
 
 namespace OHOS {
 SoftBusClientStub::SoftBusClientStub()
@@ -636,13 +634,3 @@ void SoftBusClientStub::OnRefreshDeviceFound(const void *device, uint32_t device
     LnnOnRefreshDeviceFound(device);
 }
 } // namespace OHOS
-
-int ClientIpcInit()
-{
-    g_ipc = new OHOS::IpcCenter();
-    if (g_ipc == nullptr) {
-        return -1;
-    }
-    return g_ipc->Init(false, static_cast< OHOS::IPCObjectStub * >(new OHOS::SoftBusClientStub())) ?
-        0 : -1;
-}

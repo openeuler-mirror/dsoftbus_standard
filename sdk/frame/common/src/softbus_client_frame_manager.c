@@ -184,11 +184,6 @@ int32_t InitSoftBus(const char *pkgName)
         return SOFTBUS_OK;
     }
 
-    if (ClientIpcInit()) {
-        pthread_mutex_unlock(&g_isInitedLock);
-        return SOFTBUS_ERR;
-    }
-
     if (AddClientPkgName(pkgName, g_isInited) != SOFTBUS_OK) {
         pthread_mutex_unlock(&g_isInitedLock);
         SoftBusLog(SOFTBUS_LOG_COMM, SOFTBUS_LOG_ERROR, "AddClientPkgName failed.");

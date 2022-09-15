@@ -82,7 +82,6 @@ extern "C" {
 
 #endif
 
-int ClientIpcInit();
 
 #ifdef __cplusplus
 }
