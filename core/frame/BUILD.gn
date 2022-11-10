@@ -163,10 +163,9 @@ if (defined(ohos_lite)) {
       "//base/security/deviceauth/services:deviceauth",
     ]
     if (is_standard_system) {
-      external_deps = bus_center_server_external_deps
-      external_deps += [
-        "hiviewdfx_hilog_native:libhilog",
-        "ipc:ipc_core",
+      deps += [
+        "//depend:libhilog",
+        "//depend/ipc:ipc_core",
       ]
     }
 
@@ -192,9 +191,9 @@ if (defined(ohos_lite)) {
       "//base/security/huks/services/huks_standard/huks_engine/main/core:huks_engine_core_standard",
       "//depend:syspara",
     ]
-    external_deps = [
-      "hiviewdfx_hilog_native:libhilog",
-      "ipc:ipc_core",
+    deps += [
+      "//depend:libhilog",
+      "//depend/ipc:ipc_core",
     ]
     part_name = "dsoftbus_standard"
     subsystem_name = "communication"

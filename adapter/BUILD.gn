@@ -137,7 +137,7 @@ if (defined(ohos_lite)) {
     ]
     public_configs = [ ":config_adapter_common" ]
     if (is_standard_system) {
-      external_deps = [ "hiviewdfx_hilog_native:libhilog" ]
+      deps += [ "//depend:libhilog" ]
     }
     part_name = "dsoftbus_standard"
     subsystem_name = "communication"
