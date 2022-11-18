@@ -64,7 +64,14 @@ FILLP_UINT32 VtpInstance::CryptoRand()
     }
 
     FILLP_UINT32 value = 0;
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-result"
+#endif
     read(fd, &value, sizeof(FILLP_UINT32));
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
     close(fd);
     return value;
 }
@@ -82,10 +89,14 @@ void VtpInstance::PrintFillpLog(FILLP_UINT32 debugType, FILLP_UINT32 debugLevel,
 
     va_list vaList;
     va_start(vaList, format);
+#ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wformat-nonliteral"
+#endif
     int result = vsprintf_s(debugInfo, DEBUG_BUFFER_LEN, static_cast<const char *>(format), vaList);
+#ifdef __clang__
 #pragma clang diagnostic pop
+#endif
     if (result < 0) {
         SoftBusLog(SOFTBUS_LOG_TRAN, SOFTBUS_LOG_ERROR, "**********fillDebugSend Fail!************");
         va_end(vaList);
