@@ -17,6 +17,7 @@
 
 #include "softbus_errcode.h"
 #include "softbus_log.h"
+#include "softbus_def.h" // for pkgname bounds check.
 
 namespace OHOS {
 SoftbusClientInfoManager &SoftbusClientInfoManager::GetInstance()
@@ -28,8 +29,8 @@ SoftbusClientInfoManager &SoftbusClientInfoManager::GetInstance()
 int32_t SoftbusClientInfoManager::SoftbusAddService(const std::string &pkgName, const sptr<IRemoteObject> &object,
     const sptr<IRemoteObject::DeathRecipient> &abilityDeath)
 {
-    if (pkgName.empty() || object == nullptr || abilityDeath == nullptr) {
-        SoftBusLog(SOFTBUS_LOG_COMM, SOFTBUS_LOG_ERROR, "package name, object or abilityDeath is nullptr\n");
+    if (pkgName.size() >= PKG_NAME_SIZE_MAX || object == nullptr || abilityDeath == nullptr) {
+        SoftBusLog(SOFTBUS_LOG_COMM, SOFTBUS_LOG_ERROR, "pkgName is too long, or object, abilityDeath is nullptr\n");
         return SOFTBUS_ERR;
     }
     std::lock_guard<std::recursive_mutex> autoLock(clientObjectMapLock_);
